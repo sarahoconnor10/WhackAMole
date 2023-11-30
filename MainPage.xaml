@@ -1,0 +1,80 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OConnor_Sarah_VS22.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25">
+            <VerticalStackLayout.Background>
+                <RadialGradientBrush Center="0.5,0.5">
+                    <GradientStop Color="#ddebce"
+                                  Offset=".7" />
+                    <GradientStop Color="#87c95b"
+                                  Offset="1.2" />
+                </RadialGradientBrush>
+            </VerticalStackLayout.Background>
+
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="mole.png" HeightRequest="100" HorizontalOptions="Center"/>
+                <Label x:Name="header_lbl" CharacterSpacing="2" Text="Whack-A-Mole" FontSize="Large" 
+               HorizontalOptions="CenterAndExpand"  Margin="20"
+               FontFamily="Arcade" TextColor="SaddleBrown"/>
+                <Image Source="moleflipped.png" HeightRequest="100" HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <Label Text=" 00:00" x:Name="Timer_Lbl" FontSize="Large" HorizontalTextAlignment="Center"
+               TextColor="#0b3606" FontFamily="Arcade"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center" >
+                <Label Text="Score: " FontSize="Medium" TextColor="DarkOliveGreen" FontFamily="Arcade"/>
+                <Label Text=" 0" x:Name="Score_Lbl" FontSize="Medium"
+                   TextColor="DarkOliveGreen" FontFamily="Arcade"/>
+            </HorizontalStackLayout>
+
+            <Grid x:Name="Grid4" BackgroundColor="#ddebce" HorizontalOptions="CenterAndExpand"
+              VerticalOptions="CenterAndExpand" HeightRequest="300" WidthRequest="300"
+              Margin="10" RowSpacing="15" ColumnSpacing="15"
+              IsVisible="true" IsEnabled="true">
+                <Image x:Name="mole_image4" Grid.Row="1" Grid.Column="2"
+                     Source="mole2.png" HorizontalOptions="Center" VerticalOptions="Center"
+                     IsVisible="False" ZIndex="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageTapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+
+            <Grid x:Name="Grid5" BackgroundColor="#ddebce" HorizontalOptions="CenterAndExpand"
+              VerticalOptions="CenterAndExpand" HeightRequest="300" WidthRequest="300"
+              RowSpacing="10" ColumnSpacing="10"  
+              IsVisible="False" IsEnabled="False" Margin="10">
+                <Image x:Name="mole_image5" Grid.Row="1" Grid.Column="2"
+                     Source="mole2.png" HorizontalOptions="Center" VerticalOptions="Center"
+                     IsVisible="false" ZIndex="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="ImageTapped"
+                                              NumberOfTapsRequired="1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Image Source="hammer.png" HeightRequest="50" WidthRequest="50" 
+                       HorizontalOptions="Center"/>
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Button Text="Start Game" x:Name="StartBtn" WidthRequest="200"
+            Clicked="StartBtn_Clicked" TextColor="Green" HeightRequest="60"
+            TextTransform="Uppercase" FontSize="Medium" FontAttributes="Bold"
+            Margin="5" FontFamily="Arcade" CharacterSpacing="2" BackgroundColor="White"/>
+                    <Button Text="HARD MODE" x:Name="SwitchBtn" WidthRequest="150"
+                Clicked="SwitchBtn_Clicked" TextColor="Red" BackgroundColor="Black"
+                Margin="5" FontFamily="Arcade" FontSize="Small"/>
+                </VerticalStackLayout>
+                <Image Source="hammer2.png" HeightRequest="50" WidthRequest="50" 
+                       HorizontalOptions="Center"/>
+            </HorizontalStackLayout>
+            <Label Text="HIGH SCORE:  0" x:Name="Highscore_Lbl" FontSize="Large" TextColor="DarkOliveGreen" FontFamily="Arcade" 
+               HorizontalOptions="CenterAndExpand" Margin="10"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
